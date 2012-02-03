@@ -9,6 +9,8 @@ import model.ParserException.Type;
 
 public class Variable extends Function{
 	
+	private Map <String, Expression> myMap;
+	
 	public Variable(ArrayList<Expression> list, String command){
 		super(list);
 		myList = null;
@@ -28,12 +30,16 @@ public class Variable extends Function{
 		//return (type.equals("x") || type.equals("y"));
 	}
 	
+	public Map <String, Expression> getMap () {
+		return myMap;
+	}
+	
 	public RGBColor evaluate(Map <String,Expression> input) {
 		
 		if (myMap == null)
 			myMap = input;
-		
-		myMap.putAll(input);
+		else
+			myMap.putAll(input);
 		Expression exp = myMap.get(myCommand);
 		if (exp!= null)
 			return new RGBColor (exp.evaluate(myMap));

@@ -7,15 +7,12 @@ public abstract class Function implements Expression{
 
 	protected String myCommand;
     protected ArrayList <Expression> myList;
-    protected Map<String, Expression> myMap;
-    
+   
 	public Function(ArrayList<Expression> list){
 		super();
 		myList = list;
 	}
-	public Map<String, Expression> getMap(){
-		return myMap;
-	}
+	
 	 public String toString ()
 	    {
 	        StringBuffer result = new StringBuffer();

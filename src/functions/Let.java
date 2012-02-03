@@ -3,22 +3,18 @@ package functions;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Let implements Expression{
-
-	private ArrayList<Expression> myList;
-	private Map<String, Expression> myMap;
-	//1st element in myList will be the variable 
+public class Let extends Function{
 	
 	public Let (ArrayList<Expression> exp){
-		myList = exp;
-		myMap = null;
+		super (exp);
 	}
 	
 	@Override
+	
+	//1st element in myList will be the variable 
 	public RGBColor evaluate(Map<String, Expression> input) {
-		myMap = input;
-		myMap.putAll(((Variable) myList.get(0)).myMap);
-		return myList.get(1).evaluate(myMap);
+		input.putAll(((Variable) myList.get(0)).getMap()); 
+		return myList.get(1).evaluate(input);
 	}
 	
 	public boolean isThisKindOfThing(String type) {

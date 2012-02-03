@@ -14,7 +14,7 @@ public class If extends Function{
 		if (((colors.getBlue()+ colors.getGreen()+ colors.getRed())/3) >0)
 			return myList.get(1).evaluate(input);
 	
-		return myList.get(2).evaluate(myMap);
+		return myList.get(2).evaluate(input);
 	}
 	
 	public boolean isThisKindOfThing(String type) {

@@ -195,7 +195,7 @@ public class Parser
         myCurrentPosition = charMatcher.end();
         skipWhiteSpace();
         Map <String, Expression> myMap = new HashMap<String, Expression>();
-        myMap.put(charMatch, parseNumber());
+        myMap.put(charMatch, parseExpression());
        
         Variable toEval = new Variable (null, myMap,charMatch); 
         return toEval;
