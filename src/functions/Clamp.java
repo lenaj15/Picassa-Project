@@ -9,12 +9,13 @@ import java.util.Map;
 public class Clamp extends Function{
 	public Clamp(ArrayList<Expression> list){
 		super(list);
+		myCommand = "clamp";
 	}
 	
 	// Checks if the command input matches the Expression type
 	public boolean isThisKindOfThing(String type) {
 		
-		return (type.equals("clamp"));
+		return (type.equals(myCommand));
 	}
 	
 	//Evaluates expression by clamping the given value to the Color's max and min values [-1 to 1].

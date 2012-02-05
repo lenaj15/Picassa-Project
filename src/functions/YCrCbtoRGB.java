@@ -6,33 +6,24 @@ import java.util.Map;
 
 import model.util.ColorModel;
 import model.util.PerlinNoise;
-
+/*YCrCbtoRGB is a type of Function that takes in a YUV color space type and converts it into 
+ * RGB
+*/
 public class YCrCbtoRGB extends Function{
 	
 	public YCrCbtoRGB(ArrayList<Expression> list){
 		super(list);
+		myCommand = "YCrCbtoRGB";
 	}
 	
+	// Checks if the command input matches the Expression type
 	public boolean isThisKindOfThing(String type) {
-		return (type.equals("YCrCbtoRGB") || type.equals("YCrCbToRGB"));
+		return (type.equals(myCommand) || type.equals("YCrCbToRGB"));
 	}
 	
+	//Evaluates expression by converting YUV color space to RGB through the ColorModel class method
 	public RGBColor evaluate(Map <String,Expression> input) {
 		
-		return ColorModel.ycrcb2rgb(myList.get(0).evaluate(input));
-		//return convertToRGB(myList.get(0).evaluate(input).getRed(), myList.get(1).evaluate(input).getRed(), myList.get(2).evaluate(input).getRed());
-		
+		return ColorModel.ycrcb2rgb(myList.get(0).evaluate(input));		
 	}
-	
-	/*public RGBColor convertToRGB(double Y, double Cr, double Cb) {
-		
-		double R = Y + 1.402 * (Cr-128);
-		double G = Y - 0.344 * (Cb-128) - 0.714 * (Cr-128);
-		double B = Y + 1.772 * (Cb-128);
-		
-		RGBColor myColor = new RGBColor (R,G,B);
-		myColor.clamp();
-		return myColor;
-	}*/
-	
 }

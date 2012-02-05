@@ -10,11 +10,12 @@ not less than the argument
 public class Ceil extends Function{
 	public Ceil(ArrayList<Expression> list){
 		super(list);
+		myCommand = "ceil";
 	}
 	
 	// Checks if the command input matches the Expression type 
 	public boolean isThisKindOfThing(String type) {
-		return (type.equals("ceil"));
+		return (type.equals(myCommand));
 	}
 
 	//Evaluates expression by taking the ceiling of each color component

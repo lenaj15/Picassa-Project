@@ -7,11 +7,12 @@ import java.util.Map;
 public class Atan extends Function{
 	public Atan(ArrayList<Expression> list){
 		super(list);
+		myCommand = "atan";
 	}
 	
 	// Checks if the command input matches the Expression type 
 	public boolean isThisKindOfThing(String type) {
-		return (type.equals("atan"));
+		return (type.equals(myCommand));
 	}
 	
 	//Evaluates expression by taking the arctangent of each color component

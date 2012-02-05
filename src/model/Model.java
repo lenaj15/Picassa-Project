@@ -18,6 +18,26 @@ public class Model
 {
     public static final double DOMAIN_MIN = -1;
     public static final double DOMAIN_MAX = 1;
+    public static final int NUM_FRAMES = 50;
+
+    private double myCurrentTime = 0;
+
+
+    /**
+     * Advance to the next frame in the animation.
+     */
+    public void reset ()
+    {
+        myCurrentTime = 0;
+    }
+    /**
+     * Advance to the next frame in the animation.
+     */
+    public void nextFrame ()
+    {
+        myCurrentTime += 1.0 / NUM_FRAMES;
+    }
+
 
 
     /**
@@ -41,8 +61,8 @@ public class Model
             	Map <String, Expression> mapping = new HashMap<String, Expression>();
             	mapping.put("x", new Value (evalX));
             	mapping.put("y", new Value (evalY));
+            	mapping.put("t", new Value (myCurrentTime));
             	result.setColor(imageX, imageY,toEval.evaluate(mapping).toJavaColor());
-                //result.setColor(imageX, imageY,toEval.evaluate(evalX, evalY).toJavaColor());
             }
         }
         return result;

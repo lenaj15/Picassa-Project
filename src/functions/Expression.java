@@ -9,13 +9,11 @@ import java.util.Map;
 import model.ParserException.Type;
 
 /**
- * An Expression represents a mathematical expression as a tree.
+ * An Expression is an interface, which represents a mathematical expression as a tree.
  * 
- * In this format, the internal nodes represent mathematical 
- * functions and the leaves represent constant values.
- *
- * @author former student solution
- * @author Robert C. Duvall (added comments, some code)
+ * In this format, there are 3 basic abstract methods that must be
+ * implemented: evaluating the expression, checking to see what type of expression
+ * it is, and a toString method
  */
 public interface Expression
 {

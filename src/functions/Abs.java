@@ -8,11 +8,12 @@ public class Abs extends Function{
 	
 	public Abs(ArrayList<Expression> list){
 		super(list);
+		myCommand = "abs";
 	}
 
 	// Checks if the command input matches the Expression type 
 	public boolean isThisKindOfThing(String type) {
-		return (type.equals("abs"));
+		return (type.equals(myCommand));
 	}
 	
 	//Evaluates expression by taking absolute value of each color component
